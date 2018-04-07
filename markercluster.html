@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>SIG</title>
+<!-- Bootstrap Css -->
+<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Normalize Css -->
+<link href="assets/Normalize/normalize.css" rel="stylesheet">
+<!--Font Awesome Css-->
+<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<!--Linear icon Css-->
+<link href="assets/linearicons/css/icon-font.min.css" rel="stylesheet">
+<!--Animate Css-->
+<link href="assets/animate/animate.css" rel="stylesheet">
+<!--Animate slider css-->
+<link href="assets/cd-intro/headline.css" rel="stylesheet">
+<!--Portfolio Css-->
+<link href="assets/css/ionicons.min.css" rel="stylesheet">
+<link href="assets/css/magnific-popup.css" rel="stylesheet">
+<!--Custum Css-->
+<link href="css/style.css" rel="stylesheet">
+<!--Modernizr Js-->
+<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style>
+      #map {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+      }
+    </style>
+
+
+</head>
+<body>
+<!-- Pre Loader -->
+<div id="loader"></div>
+<!--Header-->
+<header id="home" class="welcome-hero-area">
+  <div class="header-top-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <!-- START LOGO -->
+          <div class="logo"> <a href="index-2.html">L200150071</a> </div>
+          <!-- END LOGO -->
+        </div>
+        <div class="col-md-9">
+          <!-- START MAIN MENU -->
+          <nav class="navbar navbar-default">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+              <!-- Logo -->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a class="smoth-scroll" href="index.html">1.Add Marker</a></li>
+                <li><a class="smoth-scroll" href="markercluster.html">2.Marker Cluster</a></li>
+                <li><a class="smoth-scroll" href="circle.html">3.Circles</a></li>
+                <li><a class="smoth-scroll" href="heatmap.html">4.Heat Map</a></li>
+                <li><a class="smoth-scroll" href="geojson.html">5.Geojson</a></li>
+
+              </ul>
+            </div>
+            <!--MArker Cluster 
+            Circle
+            Heat Map-->>
+            <!-- /.navbar-collapse -->
+          </nav>
+          <!-- END MAIN MENU -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Start Slider Area -->
+  <div class="home-slider-area">
+  <div class="slider-sec text-center">
+  <div class="container">
+  <div class="row">
+  <div class="col-md-12">
+  <div class="slider-sec-text">
+    <div class="cd-intro">
+    <h1 class="cd-headline clip is-full-width">
+      <span>Marker Cluster</span>
+      </span>
+            
+    </h1>
+  
+  </div>
+   
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- End Slider Area -->
+</header>
+<!--About Us Start-->
+<section id="addmarker" class="aboutus">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title ln-sp">
+           <h1>Lokasi Toko Komputer Wilayah Surakarta</h1>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat: -7.56633, lng: 110.7833292}
+        });
+
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+      var locations = [
+        {lat: -7.5783831, lng: 110.806642},
+        {lat: -7.5643936, lng: 110.7989722},
+        {lat: -7.5599497, lng: 110.7899433},
+        {lat: -7.5768014, lng: 110.815551},
+        {lat: -7.5718939, lng: 110.8103079},
+        {lat: -7.5819601, lng: 110.8198927},
+        {lat: -7.5546897, lng: 110.7916906},
+        {lat: -7.5578045, lng: 110.7823981},
+        {lat: -7.5638498, lng: 110.8158389},
+        {lat: -7.56778, lng: 110.8202198},
+        {lat: -7.5542952, lng: 110.8574762},
+        {lat: -7.554465, lng: 110.8579385},
+        {lat: -7.5601352, lng: 110.8430274},
+        {lat: -7.5600818, lng: 110.8198663},
+        {lat: -7.5696003,lng: 110.8424855},
+      ]
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-1aLnFGU_fwVyTxpRuWzXQj_INKr7Aqw&callback=initMap"></script>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <div class="container">
+    <p>&copy; Copyright <script type="text/javascript">
+var d=new Date();
+document.write(d.getFullYear());
+</script>SIG</p>
+  </div>
+</footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/jquery/jquery-3.2.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/easing/jquery.easing.min.js"></script>
+<script src="assets/isotope/jquery.isotope.js"></script>
+<script src="assets/jquery/imagesloaded.pkgd.min.js"></script>
+<script src="assets/cd-intro/main.js"></script>
+<script src="assets/jquery/jquery.magnific-popup.min.js"></script>
+<script src="assets/number-animation/jquery.animateNumber.min.js"></script>
+<script src="assets/jquery/plugins.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>
